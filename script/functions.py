@@ -31,8 +31,8 @@ def naive_portfolio_returns(returns_df):
 
 
 def generate_all_parameter_combinations():
-    window_sizes = [52]
-    step_sizes = [4]
+    window_sizes = [52, 24]
+    step_sizes = [4, 1]
     risk_aversion_range = [i / 100.0 for i in range(0, 101, 25)]
     returns_percentiles = [i for i in range(0, 101, 25)]
     volatility_tolerances = [i for i in range(0, 101, 25)]

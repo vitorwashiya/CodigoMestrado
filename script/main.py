@@ -10,7 +10,7 @@ from functions import read_local_database, get_returns_dataframe, generate_all_p
     save_portfolio_returns
 from genetic_algorithm import optimize_normalized_genetic_algorithm_markowitz
 
-data = read_local_database(file_name="base_dados2.xlsx")
+data = read_local_database(file_name="base_dados.xlsx")
 df = get_returns_dataframe(data)
 
 combination = generate_all_parameter_combinations()
@@ -34,7 +34,7 @@ for parameters in tqdm(combination):
     for i in tqdm(range(window_size, len(df), step_size)):
         historical_data = df.iloc[i - window_size:i]
 
-        population_size = 10
+        population_size = 15
         max_iterations = 10000
         mutation_rate = 0.5
         fitness_threshold = 1e-7
@@ -50,7 +50,7 @@ for parameters in tqdm(combination):
         weights_dict = {}
         for col in df.columns:
             weights_dict[col] = weights[col]
-        weights_dict["Date"] = historical_data.index.max()
+        weights_dict["Date"] = df.iloc[i - window_size:i+1].index.max()
         weights_df = weights_df.append(weights_dict, ignore_index=True)
 
     weights_df = weights_df.set_index("Date")
