@@ -200,7 +200,7 @@ def optimize_normalized_genetic_algorithm_markowitz(population_size, num_assets,
     #       f"Best Individual return: {np.dot(expected_returns, best_individual)}\n"
     #       f"Best Individual Std: {np.sqrt(np.linalg.multi_dot([best_individual, covariance_matrix, best_individual]))}\n"
     #       f"fitness: {0.5 * np.sqrt(np.linalg.multi_dot([best_individual, covariance_matrix, best_individual])) - 0.5 * np.dot(expected_returns, best_individual)}")
-    return bi_series
+    return bi_series, np.dot(expected_returns, best_individual), np.sqrt(np.linalg.multi_dot([best_individual, covariance_matrix, best_individual]))
 
 
 if __name__ == '__main__':
