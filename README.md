@@ -12,3 +12,10 @@ Rode os testes
   python -m pytest test
 ```
 
+# Verificações de qualidade
+
+para verificar a qualidade do código executar o comando
+```bash
+  pylint script
+```
+
