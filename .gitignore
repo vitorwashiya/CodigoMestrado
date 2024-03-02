@@ -2,4 +2,4 @@ __pycache__
 .idea
 .ipynb_checkpoints
 .vscode
-data/portfolio_returns.json
+data/*
